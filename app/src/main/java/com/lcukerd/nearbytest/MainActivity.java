@@ -37,22 +37,6 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-/**
- * Our WalkieTalkie Activity. This Activity has 4 {@link State}s.
- *
- * <p>{@link State#UNKNOWN}: We cannot do anything. We're waiting for the GoogleApiClient to
- * connect.
- *
- * <p>{@link State#DISCOVERING}: Our default state (after we've connected). We constantly listen for
- * a device to advertise near us.
- *
- * <p>{@link State#ADVERTISING}: If a user shakes their device, they enter this state. We advertise
- * our device so that others nearby can discover us.
- *
- * <p>{@link State#CONNECTED}: We've connected to another device. We can now talk to them by holding
- * down the volume keys and speaking into the phone. We'll continue to advertise (if we were already
- * advertising) so that more people can connect to us.
- */
 public class MainActivity extends ConnectionsActivity implements SensorEventListener {
   /** If true, debug logs are shown on the device. */
   private static final boolean DEBUG = true;
@@ -81,6 +65,7 @@ public class MainActivity extends ConnectionsActivity implements SensorEventList
 
   /**
    * The state of the app. As the app changes states, the UI will update and advertising/discovery
+   *
    * will start/stop.
    */
   private State mState = State.UNKNOWN;
